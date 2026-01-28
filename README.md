@@ -1,59 +1,99 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# INVENTARUS - Sistem Inventaris Usaha
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+![Laravel](https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
 
-## About Laravel
+**Inventarus** adalah aplikasi manajemen inventaris berbasis web yang dirancang untuk membantu pelaku usaha kecil hingga menengah dalam mengelola aset mereka secara digital. Nama "Inventarus" sendiri merupakan gabungan dari **"Inventaris"** dan **"Arus"**, yang melambangkan fokus aplikasi pada pencatatan alur keluar-masuk barang yang akurat.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+**Inventarus** dirancang dengan arsitektur **Multi-Tenant**. Aplikasi ini memungkinkan banyak pengguna untuk mendaftar dan mengelola gudang mereka masing-masing secara terisolasi dalam satu sistem database yang sama.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🚀 Fitur Utama
 
-## Learning Laravel
+Aplikasi ini tidak hanya sekadar mencatat barang, tetapi memiliki logika bisnis yang lengkap:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 1. 🔐 Multi-User Data Isolation
+Setiap pengguna memiliki "Gudang Pribadi". Data barang, kategori, dan transaksi milik User A **tidak akan pernah bocor** atau terlihat oleh User B. Keamanan data terjamin menggunakan *User Scope Filtering* di level Controller.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 2. 📊 Dashboard Interaktif
+Menampilkan ringkasan statistik secara *real-time*:
+- Total Jenis Barang & Total Aset Fisik.
+- Peringatan Dini (**Early Warning System**) untuk stok menipis (< 5 unit).
+- Grafik/List aktivitas transaksi terakhir.
 
-## Laravel Sponsors
+### 3. 📦 Manajemen Stok (CRUD Lengkap)
+- Tambah, Edit, dan Hapus Barang.
+- Validasi data yang ketat (Stok tidak boleh minus, harga harus angka).
+- Pencatatan otomatis ID pemilik barang.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+### 4. 📝 Pencatatan Transaksi (Log History)
+Setiap perubahan stok tercatat rapi:
+- **Barang Masuk (Restock):** Menambah stok.
+- **Barang Keluar (Terjual):** Mengurangi stok.
+- **Peminjaman (Loan):** Mencatat siapa yang meminjam aset.
 
-### Premium Partners
+### 5. 📂 Pengelompokan Kategori
+Manajemen kategori dinamis untuk mengelompokkan jenis barang agar lebih terorganisir.
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+---
 
-## Contributing
+## 🛠️ Teknologi yang Digunakan
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- **Backend:** Laravel 12 (12.42.0) (PHP Framework)
+- **Frontend:** Blade Templating + Tailwind CSS
+- **UI Components:** Flowbite, HyperUI, Font Awesome
+- **Database:** SQLite (Portable & Ringan)
+- **Authentication:** Laravel Breeze (Secure Login/Register)
+- **Server Environment:** Nginx (via Laragon)
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 💻 Persyaratan Sistem (Prerequisites)
 
-## Security Vulnerabilities
+Sebelum menjalankan aplikasi, pastikan komputer Anda sudah terinstal:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+1.  **PHP** (Minimal versi 8.1).
+2.  **Composer** (Untuk install library PHP).
+3.  **Node.js & NPM** (Untuk compile aset Tailwind CSS).
+4.  **Git** (Untuk clone repository).
 
-## License
+---
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## ⚙️ Panduan Instalasi (Langkah demi Langkah)
+
+### Menggunakan Docker(Rekomendasi)
+Prasyarat: Pastikan Docker Dekstop sudah berjalan
+
+#### 1. Install Dependencies
+Jika di laptop Anda sudah ada PHP & Composer, cukup jalankan:
+`composer install`
+Jika belum ada PHP, gunakan perintah Docker ini untuk instalasi awal:
+```bash
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd):/var/www/html" \
+    -w /var/www/html \
+    laravelsail/php83-composer:latest \
+    composer install --ignore-platform-reqs
+```
+
+#### 2. Setup Environment
+`cp .env.example .env`
+
+#### 3. Jalankan Aplikasi
+`./vendor/bin/sail up -d`
+
+#### 4. Setup Akhir
+```bash
+./vendor/bin/sail artisan key:generate
+./vendor/bin/sail artisan migrate:fresh --seed
+./vendor/bin/sail npm install && ./vendor/bin/sail npm run build
+```
+
+#### 5. Menghentikan Aplikasi
+`./vendor/bin/sail down`
+
+### Untuk Selebihnya Panduan Instalasi Silahkan Bisa Akses Link di Bawah 
+[Panduan Instalasi](https://docs.google.com/document/d/1CmNxC70ouxP4KVcZwg4VP9Qi2ZyxyFY7CM1zXmzEDbs/edit?usp=sharing)
