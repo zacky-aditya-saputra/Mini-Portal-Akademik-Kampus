@@ -18,7 +18,7 @@ class CourseSeeder extends Seeder
                 'name' => 'Algoritma & Pemrograman',
                 'sks' => 3,
                 'lecturer' => 'Dr. Budi',
-                'description' => 'Dasar pemrograman...',
+                'description' => 'Mempelajari Dasar pemrograman',
                 'category' => 'Wajib'
             ],
             [
@@ -114,7 +114,7 @@ class CourseSeeder extends Seeder
                 'name' => 'Praktikum Sistem Operasi',
                 'sks' => 1,
                 'lecturer' => 'Dr. Farid',
-                'description' => 'Mempraktikkan Pemrograman Web',
+                'description' => 'Mengoperasikan sistem operasi Linux',
                 'category' => 'Wajib'
             ],
             [
