@@ -28,7 +28,9 @@
         searchInput.addEventListener('input', function() {
             const keyword = this.value;
 
-            fetch(`/api/courses/search?q=${keyword}`)
+            fetch(`{{ url('/api/courses/search') }}?q=${keyword}`, {
+                    headers: {'Accept': 'application/json'}
+                })
                 .then(response => response.json())
                 .then(data => {
                     courseList.innerHTML = '';
